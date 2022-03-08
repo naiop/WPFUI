@@ -1,0 +1,54 @@
+﻿<Page x:Class="WPF.UI.Solution.View.Log"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.UI.Solution.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Log"
+      Loaded="Loaded_Log">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Log" FontSize="24" Margin="10,10" ></TextBlock>
+        </StackPanel>
+
+        <Border  Grid.Row="2"  Margin="6,6,6,6"  CornerRadius="4" BorderBrush="#4ABDA7" BorderThickness="1,1">
+            <ScrollViewer Template="{StaticResource MyScrollViewer}" 
+                      HorizontalScrollBarVisibility="Disabled" 
+                      Padding="10">
+                <StackPanel>
+                    <Border Margin="5,5,5,5" Background="#20ffffff" CornerRadius="4">
+                        <GroupBox Header="异常日志" FontWeight="Bold"  FontSize="12" Foreground="#000" BorderThickness="3,3,3,3" BorderBrush="#4ABDA7">
+                            <GroupBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="MItem_Exception" Header="Clear" Click="MItem_ClearClick" CommandParameter="Exception"></MenuItem>
+                                </ContextMenu>
+                            </GroupBox.ContextMenu>
+                            <ListBox  Background="#20ffffff" Height="auto"  Foreground="#000" Name="Exception"/>
+                        </GroupBox>
+                    </Border>
+                    <Border Margin="5,5,5,5" Background="#20ffffff" >
+                        <GroupBox  Header="交互日志" FontWeight="Bold" FontSize="12" Foreground="#000" BorderThickness="3,3,3,3" BorderBrush="#4ABDA7">
+                            <GroupBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="MItem_interactive" Header="Clear" Click="MItem_ClearClick" CommandParameter="interactive"></MenuItem>
+                                </ContextMenu>
+                            </GroupBox.ContextMenu>
+                            <ListBox Background="#20ffffff" Foreground="#000"  Name="MessageList"/>
+                        </GroupBox>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Page>

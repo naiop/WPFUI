@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--图标字体 -->
+    <FontFamily x:Key="Font">/Fonts/#iconfont</FontFamily>
+
+    <ResourceDictionary.MergedDictionaries>
+        
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/Base.xaml" />
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/RadioButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/WPF.Style.Design.Library;Component/BaseStyle/MenuRadioButtom.xaml" />
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/ScrollViewer.xaml" />
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/MenuItem.xaml" />
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/Expander.xaml" />
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/ProgressBar.xaml" />
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/ListView.xaml" />
+        <ResourceDictionary Source="/WPF.Style.Design.Library;Component/BaseStyle/DataGrid.xaml" />
+
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

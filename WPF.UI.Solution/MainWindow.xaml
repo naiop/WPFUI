@@ -1,0 +1,138 @@
+﻿<Window x:Class="WPF.UI.Solution.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.UI.Solution"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        FontFamily="Consolas"
+        Height="450" 
+        Width="800"
+        Loaded="Window_Loaded" WindowState="Maximized">
+
+    <Border CornerRadius="4"  Name="mainback">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!--列定义-->
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <!--行定义-->
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"  />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0"  
+                  Grid.Row="0"  
+                  Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="309*"/>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0">
+                    <Image Source="Img/UI.png" Width="Auto" Height="35" Margin="10,0"/>
+                </Border>
+                <Border Grid.Column="1" Grid.ColumnSpan="2" >
+                    <TextBlock 
+                        Text="Designers" 
+                        FontWeight="Bold" 
+                        Foreground="#19be96"
+                        FontSize="20" 
+                        VerticalAlignment="Center" 
+                        Margin="0,5,0,5" 
+                        FontStyle="Normal" 
+                        FontFamily="Forte"/>
+                </Border>
+            </Grid>
+
+            <Border Grid.Row="1" Grid.ColumnSpan="2" Width="Auto" Margin="3,0,6,0" Padding="6" CornerRadius="4" BorderBrush="#ffefef" BorderThickness="1,1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <!--列定义-->
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Menu FontFamily="Consolas" FontSize="14" >
+                        <MenuItem Header="Files" FontWeight="Bold" Icon="/Img/files.png" >
+                            <MenuItem Header="MenuItem"  FontWeight="Bold" Icon="/Img/home.png"  Click="MenuItem_Click" CommandParameter="MenuItem" />
+                            <MenuItem Header="MenuItem" Click="MenuItem_Click" Icon="/Img/net.png" CommandParameter="MenuItem"/>
+                            <MenuItem Header="Log" Click="MenuItem_Click" Icon="/Img/log.png" CommandParameter="Log"/>
+                            <MenuItem Header="Set" Click="MenuItem_Click" Icon="/Img/settings.png" CommandParameter="Set"/>
+                        </MenuItem>
+                        <MenuItem Header="Project" FontWeight="Bold" Click="MenuItem_Click" Icon="/Img/app.png" CommandParameter="Project"/>
+                        <MenuItem Header="Help" FontWeight="Bold" Icon="/Img/help.png" Click="MenuItem_Click" CommandParameter="Help"  />
+                        <MenuItem Header="About"  FontWeight="Bold" Icon="/Img/about.png"  Click="MenuItem_Click" CommandParameter="About" />
+                    </Menu>
+
+                    <TextBlock Grid.Column="2" x:Name="time" Text="2022.3.3"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" ToolTip="变动日期"></TextBlock>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="2" Background="#E6E6E6"  Margin="3,3,3,6" CornerRadius="4" BorderBrush="#4ABDA7" BorderThickness="1,1">
+                <ScrollViewer Template="{StaticResource MyScrollViewer}" VerticalAlignment="Top" >
+                    <StackPanel>
+                        <Expander
+                            Header="Expander"
+                            IsExpanded="True"            
+                            Style="{StaticResource Expander}">
+                            <StackPanel Margin="15,5,5,5">
+                                <Border>
+                                    <RadioButton Style="{StaticResource MenuRadioButtom2}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="Welcome" >
+                                        <StackPanel Orientation="Horizontal" Height="35">
+                                            <TextBlock Text="&#xe6db;" FontSize="14" FontFamily="{StaticResource Font}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Welcome"  Margin="10 0 0 0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </RadioButton>
+                                </Border>
+                                <Border>
+                                    <RadioButton Style="{StaticResource MenuRadioButtom2}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="Base" >
+                                        <StackPanel Orientation="Horizontal" Height="35">
+                                            <TextBlock Text="&#xe655;" FontSize="14" FontFamily="{StaticResource Font}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Base"  Margin="10 0 0 0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </RadioButton>
+                                </Border>
+                                <Border>
+                                    <RadioButton Style="{StaticResource MenuRadioButtom2}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="Test" >
+                                        <StackPanel Orientation="Horizontal" Height="35">
+                                            <TextBlock Text="&#xe698;" FontSize="14" FontFamily="{StaticResource Font}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="Test"  Margin="10 0 0 0" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </RadioButton>
+                                </Border>
+                            </StackPanel>
+                        </Expander>
+                        <Expander
+                            Header="Design-Base"
+                            IsExpanded="False"
+                            Style="{StaticResource Expander}">
+                            <StackPanel  Margin="15,5,5,5">
+                                <RadioButton Content="DataGrid" Style="{StaticResource MenuRadioButtom2}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="DataGrid" />
+                                <RadioButton Content="ListView" Style="{StaticResource MenuRadioButtom2}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="ListView" />
+                                <RadioButton Content="Notifiaction" Style="{StaticResource MenuRadioButtom2}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="Notifiaction" />
+                                <RadioButton Content="MenuRadioButtom1" Style="{StaticResource MenuRadioButtom}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="1" />
+                                <RadioButton Content="MenuRadioButtom1" Style="{StaticResource MenuRadioButtom}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="1" />
+                                <RadioButton Content="MenuRadioButtom1" Style="{StaticResource MenuRadioButtom}" GroupName="Menu" Click="MenuRadioButtom_Click" CommandParameter="1" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            <Border Grid.Column="1"  Grid.Row="2"
+                    Margin="3,3,3,6" CornerRadius="4" BorderBrush="#4ABDA7" BorderThickness="1,1">
+                <Frame 
+                    x:Name="Frame" 
+                    Content="{Binding CurrentPage}" 
+                    NavigationUIVisibility="Hidden" />
+            </Border>
+            
+        </Grid>
+
+    </Border>
+</Window>
