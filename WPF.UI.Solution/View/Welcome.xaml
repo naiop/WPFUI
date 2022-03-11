@@ -1,18 +1,470 @@
-﻿<Page x:Class="WPF.UI.Solution.View.Welcome"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WPF.UI.Solution.View"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Welcome">
+﻿<Page
+    x:Class="WPF.UI.Solution.View.Welcome"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:gif="http://wpfanimatedgif.codeplex.com"
+    xmlns:local="clr-namespace:WPF.UI.Solution.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Welcome"
+    Width="472"
+    Height="332"
+    Background="Transparent"
+    Foreground="White"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+
+        <FontFamily x:Key="IconFont">/Img/Welcome/#iconfont</FontFamily>
+
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="#FFCCCCCC" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="#FF62B4F7" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="text">#FF000000</SolidColorBrush>
+
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="#FF2685E3" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="#FF62B4F7" />
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="CodeButton" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="24" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="#FF2685E3" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Image Name="img" Source="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/corner_right_normal_breath.png" />
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="img" Property="Source" Value="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/corner_right_hover.png" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="img" Property="Source" Value="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/corner_right_normal_down.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="QQCheckBox" TargetType="{x:Type CheckBox}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Foreground" Value="#FF656565" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Grid
+                                Width="17"
+                                Height="17"
+                                Margin="0,0,3,0">
+                                <Border
+                                    Name="bd"
+                                    Width="12"
+                                    Height="12"
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    BorderBrush="Gray"
+                                    BorderThickness="1" />
+                                <Image
+                                    Name="img"
+                                    Width="17"
+                                    Height="17"
+                                    Margin="0,1,0,0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Stretch="Fill"
+                                    Visibility="Collapsed" />
+                            </Grid>
+                            <ContentPresenter VerticalAlignment="Center" />
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsChecked" Value="True" />
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="img" Property="Source" Value="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/checkbox_tick_highlight1.png" />
+                            </MultiTrigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="img" Property="Visibility" Value="Visible" />
+                                <Setter TargetName="img" Property="Source" Value="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/checkbox_tick_pushed1.png" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle
+                            Margin="2"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+
+        <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnMouseEnter1">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#FF3CC3F5" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="OnMouseLeave1">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetName="border" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                    <EasingColorKeyFrame KeyTime="0:0:0.6" Value="#FF09A3DC" />
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Border
+                            x:Name="border"
+                            Background="#FF09A3DC"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}" />
+                                <BeginStoryboard x:Name="OnMouseLeave1_BeginStoryboard" Storyboard="{StaticResource OnMouseLeave1}" />
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard Storyboard="{StaticResource OnMouseEnter1}" />
+                            </EventTrigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Pressed.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource Button.Disabled.Background}" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource Button.Disabled.Border}" />
+                                <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{StaticResource Button.Disabled.Foreground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="HoverImage" TargetType="Image">
+            <Setter Property="Stretch" Value="None" />
+            <Setter Property="LayoutTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="LayoutTransform.ScaleX"
+                                    To="1.4"
+                                    Duration="0:0:0.25" />
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="LayoutTransform.ScaleY"
+                                    To="1.4"
+                                    Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="LayoutTransform.ScaleX"
+                                    To="1"
+                                    Duration="0:0:0.25" />
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="LayoutTransform.ScaleY"
+                                    To="1"
+                                    Duration="0:0:0.25" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="pack://application:,,,/WPF.UI.Solution;Component/Img/bg.png" TileMode="Tile"  Viewport="0.1,0.1,0.1,0.1"/>
+            <ImageBrush
+                ImageSource="pack://application:,,,/WPF.UI.Solution;Component/Img/bg.png"
+                TileMode="Tile"
+                Viewport="0.1,0.1,0.1,0.1" />
         </Grid.Background>
-        <Image Margin="40,40" Source="pack://application:,,,/WPF.UI.Solution;Component/Img/w.png" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="182" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border>
+            <Grid>
+                <Border>
+                    <Image gif:ImageBehavior.AnimatedSource="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/back.gif" Stretch="Fill" />
+                </Border>
+                <Image
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Source="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/logo-banner.png"
+                    Stretch="None" />
+                <Border Background="#00FFFFFF" />
+                <TextBlock
+                    Margin="0,9,70,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    FontFamily="{StaticResource IconFont}"
+                    FontSize="12"
+                    Text="&#xe971;" />
+            </Grid>
+        </Border>
+        <Border
+            Grid.Row="1"
+            Background="#FFEBF2F9"
+            CornerRadius="0,0,3,3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Ellipse
+                        Width="80"
+                        Height="80"
+                        Margin="42,12,0,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/QQ.jpg" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Button
+                        Margin="5,0,0,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Content="&#xe62a;"
+                        FontFamily="{StaticResource IconFont}"
+                        FontSize="25"
+                        Style="{DynamicResource ButtonStyle1}" />
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="55" />
+                    </Grid.RowDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Width="195"
+                        Height="60"
+                        VerticalAlignment="Bottom"
+                        Background="White"
+                        BorderBrush="#FFD1D1D1"
+                        BorderThickness="1"
+                        CornerRadius="3">
+                        <Grid>
+                            <Border
+                                Height="1"
+                                VerticalAlignment="Center"
+                                Background="#FFD1D1D1" />
+                            <TextBox
+                                Height="20"
+                                Margin="6,5,16,0"
+                                VerticalAlignment="Top"
+                                VerticalContentAlignment="Center"
+                                BorderThickness="0"
+                                Style="{x:Null}"
+                                Text="15967891011" />
+                            <TextBlock
+                                Margin="0,9,7,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top"
+                                FontFamily="{StaticResource IconFont}"
+                                FontSize="12"
+                                Foreground="#FFB4B4B4"
+                                Text="&#xe971;" />
+                            <PasswordBox
+                                Height="20"
+                                Margin="6,0,6,5"
+                                VerticalAlignment="Bottom"
+                                VerticalContentAlignment="Center"
+                                BorderThickness="0"
+                                Password="123456789" />
+                            <TextBlock
+                                Margin="0,0,5,6"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                FontFamily="{StaticResource IconFont}"
+                                FontSize="16"
+                                Foreground="#FFB4B4B4"
+                                Text="&#xe671;" />
+                        </Grid>
+                    </Border>
+                    <Grid
+                        Grid.Row="1"
+                        Margin="2,3,2,0"
+                        VerticalAlignment="Center">
+                        <CheckBox
+                            HorizontalAlignment="Left"
+                            Content="记住密码"
+                            IsChecked="True"
+                            Style="{StaticResource QQCheckBox}" />
+                        <CheckBox
+                            HorizontalAlignment="Right"
+                            Content="自动登录"
+                            Style="{StaticResource QQCheckBox}" />
+                    </Grid>
+                    <Button
+                        Grid.Row="2"
+                        Width="195"
+                        Height="32"
+                        Background="#FF00B2DE"
+                        Content="登  录"
+                        Style="{DynamicResource ButtonStyle3}" />
+                </Grid>
+                <Grid Grid.Column="2">
+                    <StackPanel Margin="0,9,35,0">
+                        <Button
+                            Margin="8"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Content="注册账号"
+                            Style="{DynamicResource ButtonStyle2}" />
+                        <Button
+                            Margin="8"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Bottom"
+                            Content="找回密码"
+                            Style="{DynamicResource ButtonStyle2}" />
+                    </StackPanel>
+                    <Button
+                        Margin="0,0,5,5"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Style="{StaticResource CodeButton}" />
+                </Grid>
 
+                <Image
+                Width="20"
+                Height="20"
+                Source="pack://application:,,,/WPF.UI.Solution;Component/Img/Welcome/QQ.jpg"
+                Stretch="Fill"
+                Style="{StaticResource HoverImage}" />
+            </Grid>
+        </Border>
     </Grid>
 </Page>

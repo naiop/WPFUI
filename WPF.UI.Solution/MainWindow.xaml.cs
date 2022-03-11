@@ -50,7 +50,7 @@ namespace WPF.UI.Solution
             System.Windows.Controls.MenuItem menuItem = (System.Windows.Controls.MenuItem)sender;
             switch (menuItem.CommandParameter.ToString())
             {
-                case "MenuItem":                    
+                case "MenuItem":
                     LogMessages.ShowLog("MenuItem ", "DEBUG");
                     break;
                 case "Log":
@@ -100,9 +100,13 @@ namespace WPF.UI.Solution
                 case "ListView":
                     Frame.Content = new View.ListView();
                     break;
-                        case "Notifiaction":
+                case "Notifiaction":
                     Frame.Content = new View._Notification();
                     break;
+                case "VirtualizingWrapPanel":
+                    Frame.Content = new View._VirtualizingWrapPanel();
+                    break;
+                    
             }
         }
 

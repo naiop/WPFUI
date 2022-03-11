@@ -1,0 +1,35 @@
+﻿<Page x:Class="WPF.UI.Solution.View._VirtualizingWrapPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.UI.Solution.View" 
+      xmlns:localVirtualizingPPanel="clr-namespace:WPF.VirtualizingPPanel;assembly=WPF.VirtualizingPPanel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="_VirtualizingWrapPanel">
+
+    <Grid>
+        <StackPanel Height="50" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button Content="clearAll" Click="Button_Click"></Button>
+            <Button Content="Add" Click="Button_Click_1"></Button>
+            <Button Content="Add at index 3" Click="btnAddIndex3"></Button>
+            <Button Content="edit at index 2" Click="editindex" />
+            <Button Content="Remove" Click="Button_Click_2"></Button>
+            <Button Content="ShowCount" Click="Button_Click_3"></Button>
+
+        </StackPanel>
+        <ListBox Margin="0,50,0,0" Name="listB">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Width="70" Height="70"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <localVirtualizingPPanel:VirtualizingWrapPanel ScrollOffset="50" ChildHeight="70" ChildWidth="70"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Page>

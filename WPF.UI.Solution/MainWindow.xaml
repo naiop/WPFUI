@@ -244,8 +244,8 @@
                                     Style="{StaticResource MenuRadioButtom2}" />
                                 <RadioButton
                                     Click="MenuRadioButtom_Click"
-                                    CommandParameter="1"
-                                    Content="MenuRadioButtom1"
+                                    CommandParameter="VirtualizingWrapPanel"
+                                    Content="虚拟化面板"
                                     GroupName="Menu"
                                     Style="{StaticResource MenuRadioButtom}" />
                                 <RadioButton

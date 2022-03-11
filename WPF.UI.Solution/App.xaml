@@ -1,12 +1,13 @@
-﻿<Application x:Class="WPF.UI.Solution.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPF.UI.Solution"
-             StartupUri="MainWindow.xaml"
-             Startup="App_OnStartup">
+﻿<Application
+    x:Class="WPF.UI.Solution.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WPF.UI.Solution"
+    Startup="App_OnStartup"
+    StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
         <ResourceDictionary Source="pack://application:,,,/WPF.Style.Design.Library;Component/Style.xaml" />
-         
+
     </Application.Resources>
 </Application>

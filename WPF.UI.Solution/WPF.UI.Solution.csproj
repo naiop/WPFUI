@@ -52,6 +52,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -89,6 +92,9 @@
     </Compile>
     <Compile Include="View\_Notification.xaml.cs">
       <DependentUpon>_Notification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\_VirtualizingWrapPanel.xaml.cs">
+      <DependentUpon>_VirtualizingWrapPanel.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +148,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\_VirtualizingWrapPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -162,6 +172,8 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Fonts\iconfont.ttf" />
+    <Resource Include="Img\Welcome\iconfont.ttf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -178,6 +190,10 @@
     <ProjectReference Include="..\WPF.Style.Design.Library\WPF.Style.Design.Library.csproj">
       <Project>{67400827-2d21-42c3-b0eb-e4440a15cdca}</Project>
       <Name>WPF.Style.Design.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WPF.VirtualizingPPanel\WPF.VirtualizingPPanel.csproj">
+      <Project>{5d391a28-2f9d-458b-8e33-dbcf97042eea}</Project>
+      <Name>WPF.VirtualizingPPanel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -204,7 +220,9 @@
     <Resource Include="Img\wangyeguifan.png" />
     <Resource Include="Img\files.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Lib\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\home.png" />
   </ItemGroup>
@@ -213,6 +231,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fonts\demo_index.html" />
+    <Resource Include="Img\Welcome\QQ.jpg" />
+    <Resource Include="Img\Welcome\afternoon.jpg" />
+    <Resource Include="Img\Welcome\back.gif" />
+    <Resource Include="Img\Welcome\checkbox_tick_highlight1.png" />
+    <Resource Include="Img\Welcome\checkbox_tick_normal1.png" />
+    <Resource Include="Img\Welcome\checkbox_tick_pushed1.png" />
+    <Resource Include="Img\Welcome\corner_right_hover.png" />
+    <Resource Include="Img\Welcome\corner_right_normal_breath.png" />
+    <Resource Include="Img\Welcome\corner_right_normal_down.png" />
+    <Resource Include="Img\Welcome\logo-banner.png" />
     <Resource Include="Img\Notification\facebook-button.png" />
     <Resource Include="Img\Notification\microsoft-windows-8-logo.png" />
     <Resource Include="Img\Notification\notification-icon.png" />
